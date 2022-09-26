@@ -1,0 +1,29 @@
+<div *ngIf="object">
+    <h2>
+    {{object.name}}
+    </h2>
+    <div>
+    Name:
+    <input [(ngModel)]="object.name" placeholder="Name"/>
+    </div>
+    <div>
+        Type:
+        <input [(ngModel)]="object.type" placeholder="type"/>
+        </div>
+    <div>
+    Age:
+    <input [(ngModel)]="object.age" placeholder="Age"/>
+    </div>
+    <div>
+        diameter:
+        <input [(ngModel)]="object.diameter" placeholder="diameter"/>
+        </div>
+      <div>
+    mass:
+    <input [(ngModel)]="object.mass" placeholder="mass"/>
+    </div>
+   
+    <button (click)="updateObject(object)" *ngIf="object.id">Сохранить</button>
+    <button (click)="deleteObject(object)" *ngIf="object.id">Удалить</button>
+    <button (click)="createObject(object)" *ngIf="!object.id">Создать</button>
+</div>

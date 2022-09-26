@@ -1,0 +1,26 @@
+<div class="flex border-2 bg-blue-100 rounded items-left flex-row" >
+
+
+    <div  class=" py-4 px-2  mb-2 flex flex-col items text-center">
+        <img class="" src="assets/Icons/Space-system.png">
+        <h1 class="font-bold">Солнечная система</h1>
+        <p> Имя системы:{{system.name}}</p>
+        <p> Возвраст системы={{system.age}}</p>
+    </div>
+
+    <div class=" m-2 border-1 bg-gray-100 py-2 px-4 flex flex-col justify-between">
+        <button (click)="getSystemObjects()" (click)="objectVisible =!objectVisible"
+             class=" m-1 border-1 bg-blue-100">{{objectVisible ? '<-объекты':'объекты->' }}</button>
+        <button  (click)="redactSpaceSystem(system)" class=" m-1 border-1 bg-blue-100">Редактировать</button>
+        <button (click)="deleteSpaceSystem(system)" class=" m-1 border-1 bg-blue-100">Удалить</button>
+    </div>
+
+    <div class="flex m-2" *ngIf="objectVisible">
+        <app-space-ojbect class="p-2" *ngFor="let object of objectsSystem$|async" [object]="object" ></app-space-ojbect>
+       
+       
+         
+        <button (click)="createSpaceObjectService.openCreateObjectPanel(system)" class="m-4 text-[38px] border-1 bg-gray-100">+</button>
+    </div>
+
+</div>

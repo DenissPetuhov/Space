@@ -1,0 +1,16 @@
+<div *ngIf="system">
+    <h2>
+    {{system.name}}
+    </h2>
+    <div>
+    Name:
+    <input [(ngModel)]="system.name" placeholder="Name"/>
+    </div>
+    <div>
+    Age:
+    <input [(ngModel)]="system.age" placeholder="Age"/>
+    </div>
+    <button (click)="updateSystem(system)" *ngIf="system.id">Сохранить</button>
+    <button (click)="deleteSystem(system)" *ngIf="system.id">Удалить</button>
+    <button (click)="createSystem(system)" *ngIf="!system.id">Создать</button>
+</div>

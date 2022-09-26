@@ -1,0 +1,18 @@
+
+<div>
+  <div class="flex flex-col ">
+    <button class="m-2 w-64 border-1 bg-blue-100" (click)="createSpaceSystemSerice.openCreateSystemPanel()">Добавить солнечную систему</button>
+    <input class=" m-2 w-64 border bg-gray-100" placeholder="Поиск по названию"
+    [(ngModel)]="inputSearch">
+  </div>
+  <div *ngIf="systems$| async as systems">
+    <app-space-system  *ngFor="let system of systems | serchSystem: inputSearch" [system]="system" ></app-space-system>
+  </div>
+
+  <app-modal *ngIf="modalService.isVisible$ |async">
+    <app-create-space-system *ngIf="createSpaceSystemSerice.isVisible$|async"></app-create-space-system>
+    <app-create-spaceobject *ngIf="createSpaceObjectService.isVisible$|async"></app-create-spaceobject>
+    <app-redact-space-system *ngIf="redactSpaceSystemService.isVisible$|async"></app-redact-space-system>
+  </app-modal>
+ 
+</div>

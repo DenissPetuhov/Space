@@ -1,0 +1,65 @@
+
+<div class="table">
+
+
+<button (click)="initNewSystem()">Создать новую Систему</button>
+<table >
+  <thead>
+  <th>Имя</th>
+  <th>Возвраст</th>
+  <th></th>
+  <th></th>
+  </thead>
+<tbody >
+  <tr *ngFor="let system of systems">
+    <td>
+      {{system.name}}
+    </td>
+    <td>
+      {{system.age}}
+    </td>
+    <Td><button (click)="editSystem(system)">Редактировать</button></Td>
+    <Td><button (click)="getSystemObject(system)">Показать Обьекты</button></Td>
+  </tr>
+
+</tbody>
+</table>
+
+  <button (click)="initNewObject()">Создать новый объект</button>
+  <table>
+  <thead>
+    <th>Имя</th>
+    <th>тип</th>
+    <th>Возвраст</th>
+    <th>Диаметр</th>
+    <th>Масса</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let object of objects">
+      <td>
+        {{object.name}}
+      </td>
+      <td>
+        {{object.type}}
+      </td>
+      <td>
+        {{object.age}}
+      </td>
+      <td>
+        {{object.diameter}}
+      </td>
+      <td>
+        {{object.mass}}
+      </td>
+      <Td><button (click)="editObject(object)">Редактировать</button></Td>
+    </tr>
+  
+  </tbody>
+</table>
+</div>
+
+
+<app-edit-space-system [system]="systemToEdit" (SpaceUpdate)="updateSpaceList($event.responseData)"></app-edit-space-system>
+<app-edit-space-object [object]="objectToEdit" ></app-edit-space-object>
